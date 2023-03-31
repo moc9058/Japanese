@@ -120,9 +120,9 @@ class Variant:
 
 
 import random
-verbs_file = open("verbs.txt", "r", encoding="UTF-8")
+verbs_file = open("verb/verbs.txt", "r", encoding="UTF-8")
 # variants_file = open("동사 변화.txt", "r", encoding="UTF-8")
-variants_file = open("동사 변화.txt", "r", encoding="UTF-8")
+variants_file = open("verb/동사 변화.txt", "r", encoding="UTF-8")
 
 verbs = verbs_file.readlines()
 variants = variants_file.readlines()

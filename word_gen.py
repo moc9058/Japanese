@@ -1,9 +1,9 @@
 import random
 mode = input("t:today.txt, 그 외:words.txt\n")
 if mode.lower() == 't':
-    words_file = open("today.txt",'r', encoding="UTF-8")
+    words_file = open("word/today.txt",'r', encoding="UTF-8")
 else:
-    words_file = open("words.txt",'r', encoding="utf-8")
+    words_file = open("word/words.txt",'r', encoding="utf-8")
 
 prob_index, ans_index = 0,1
 K_or_J = input("j:일본어를 보여줌, 그 외:한국어를 보여줌\n")
