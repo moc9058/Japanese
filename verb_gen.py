@@ -89,7 +89,7 @@ class Verb:
                     string = '来よ' + other.string
         # 동사 원형, other_group == 0
         else:
-            string += other.string
+            string += (minus_one + other.string)
         return string
     
     # ni: 0~4
