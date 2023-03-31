@@ -1,10 +1,15 @@
 import random
-mode = input("t:today.txt, 그 외:words.txt\n")
-if mode.lower() == 't':
-    words_file = open("word/today.txt",'r', encoding="UTF-8")
-else:
-    words_file = open("word/words.txt",'r', encoding="utf-8")
-
+mode = input("0:today.txt, 1:회화책.txt, 그 외:시나공\n")
+try:
+    if int(mode) == 0:
+        words_file = open("word/today.txt", 'r', encoding="UTF-8")
+    elif int(mode) == 1:
+        words_file = open("word/회화책.txt",'r', encoding="UTF-8")
+    else:
+        words_file = open("word/시나공.txt",'r', encoding="utf-8")
+except:
+    words_file = open("word/시나공.txt",'r', encoding="utf-8")
+    
 prob_index, ans_index = 0,1
 K_or_J = input("j:일본어를 보여줌, 그 외:한국어를 보여줌\n")
 if K_or_J.lower() == 'j':
