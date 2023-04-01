@@ -87,6 +87,9 @@ class Verb:
                     string = 'しよ' + other.string
                 else:
                     string = '来よ' + other.string
+        # 'そうだ'
+        elif other_group == 7:
+            string += other.string
         # 동사 원형, other_group == 0
         else:
             string += (minus_one + other.string)
@@ -120,9 +123,9 @@ class Variant:
 
 
 import random
-verbs_file = open("verb/verbs.txt", "r", encoding="UTF-8")
+verbs_file = open("VA/verbs.txt", "r", encoding="UTF-8")
 # variants_file = open("동사 변화.txt", "r", encoding="UTF-8")
-variants_file = open("verb/동사 변화.txt", "r", encoding="UTF-8")
+variants_file = open("VA/동사 변화.txt", "r", encoding="UTF-8")
 
 verbs = verbs_file.readlines()
 variants = variants_file.readlines()
