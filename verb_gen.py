@@ -129,7 +129,6 @@ class Variant:
 
 import random
 verbs_file = open("VA/verbs.txt", "r", encoding="UTF-8")
-# variants_file = open("동사 변화.txt", "r", encoding="UTF-8")
 variants_file = open("VA/동사 변화.txt", "r", encoding="UTF-8")
 
 verbs = verbs_file.readlines()
@@ -160,6 +159,7 @@ while True:
 
     if a.lower() == 'x':
         break
+    print(f"원형: {verb_splitted[1]}, {verb_splitted[2]}그룹")
     print(f"답: {verb_obj + variant_obj}")
     print()
 

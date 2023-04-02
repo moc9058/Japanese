@@ -25,17 +25,15 @@ while True:
     a = input()
     if a.lower() == 'x':
         break
-
-    if len(word_splitted) == 2:
-        kanji = ""
-        romaji = word_splitted[1]
-        print(f"정답: {romaji}")
+    
+    original_txt = word_splitted[1]
+    if "、" in original_txt:
+        print(original_txt)
+    elif "（" in original_txt:    
+        japanese = original_txt.split("（")
+        print(f"{japanese[0]}({japanese[1][:-1]})")
     else:
-        kanji = word_splitted[1]
-        romaji = word_splitted[2]
-        print(f"정답: {kanji}({romaji})")
-
-
+        print(original_txt)
     
 
     a = input()
