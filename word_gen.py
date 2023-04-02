@@ -1,5 +1,5 @@
 import random
-mode = input("0:today.txt, 1:회화책.txt, 그 외:시나공\n")
+mode = input("0:today.txt, 1:회화책.txt, 그 외:N5\n")
 try:
     if int(mode) == 0:
         words_file = open("words/today.txt", 'r', encoding="UTF-8")

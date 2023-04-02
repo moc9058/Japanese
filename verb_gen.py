@@ -89,7 +89,12 @@ class Verb:
                     string = '来よ' + other.string
         # 'そうだ'
         elif other_group == 7:
-            string += other.string
+            if string == 'い':
+                string = 'よさ' + other.string
+            elif string == 'な':
+                string = ('なさ' + other.string)
+            else:
+                string += other.string
         # 동사 원형, other_group == 0
         else:
             string += (minus_one + other.string)
