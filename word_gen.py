@@ -1,10 +1,10 @@
 import random
-mode = input("0:today.txt, 1:회화책.txt, 그 외:N5\n")
+mode = input("0:today.txt, 1:verbs.txt, 그 외:N5.txt\n")
 try:
     if int(mode) == 0:
         words_file = open("words/today.txt", 'r', encoding="UTF-8")
     elif int(mode) == 1:
-        words_file = open("words/회화책.txt",'r', encoding="UTF-8")
+        words_file = open("VA/verbs.txt",'r', encoding="UTF-8")
     else:
         words_file = open("words/N5.txt",'r', encoding="utf-8")
 except:
@@ -12,6 +12,7 @@ except:
     
 prob_index, ans_index = 0,1
 words = words_file.readlines()
+
 
 while True:
     num_words = len(words)
@@ -26,15 +27,10 @@ while True:
     if a.lower() == 'x':
         break
     
-    original_txt = word_splitted[1]
-    if "、" in original_txt:
-        print(original_txt)
-    elif "（" in original_txt:    
-        japanese = original_txt.split("（")
-        print(f"{japanese[0]}({japanese[1][:-1]})")
-    else:
-        print(original_txt)
-    
+    to_print = word_splitted[1]
+    if len(word_splitted) > 2:
+        to_print += f", {word_splitted[2]}그룹"
+    print(to_print)
 
     a = input()
     if a.lower() == 'x':

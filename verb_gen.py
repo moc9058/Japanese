@@ -159,7 +159,7 @@ while True:
 
     if a.lower() == 'x':
         break
-    print(f"원형: {verb_splitted[1]}, {verb_splitted[2]}그룹")
+    # print(f"원형: {verb_splitted[1]}, {verb_splitted[2]}그룹")
     print(f"답: {verb_obj + variant_obj}")
     print()
 
