@@ -30,7 +30,7 @@ while True:
     except:
         pass
 
-    word_splitted = word.split("；")
+    word_splitted = word.split("\t;\t")
     korean = word_splitted[0]
     print(f"{korean}({num_words} left)", end=" ")
     a = input()
