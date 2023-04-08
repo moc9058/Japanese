@@ -1,5 +1,6 @@
 import random
-mode = input("0:today.txt, 1:verbs.txt, 2:N5.txt, 3:kanji.txt 그 외:kanji_words.txt\n")
+mode = input("0:today.txt, 1:verbs.txt, 2:N5.txt, 3:kanji2kor.txt, 4:kor2kanji.txt, 그 외:kanji_words.txt\n")
+restrict = False
 try:
     if int(mode) == 0:
         words_file = open("words/today.txt", 'r', encoding="UTF-8")
@@ -8,7 +9,11 @@ try:
     elif int(mode) == 2:
         words_file = open("words/N5.txt",'r', encoding="utf-8")
     elif int(mode) == 3:    
-        words_file = open("words/kanji.txt",'r', encoding="utf-8")
+        words_file = open("words/kanji2kor.txt",'r', encoding="utf-8")
+        restrict = True
+    elif int(mode) == 4:
+        words_file = open("words/kor2kanji.txt",'r', encoding="utf-8")
+        restrict = True
     else:
         words_file = open("words/kanji_words.txt",'r',encoding="utf-8")
 except:
@@ -20,11 +25,14 @@ words = words_file.readlines()
 num_cycle = -1
 wrong_cycles = []
 wrong_words = []
+thres_length = len(words) - 50
+
 while True:
     num_cycle += 1
     num_words = len(words)
     again = False
-
+    if num_words == thres_length:
+        break
     try:
         random_index = random.randint(0, num_words-1)
     except:
@@ -43,7 +51,10 @@ while True:
         again = True
     word_splitted = word.split("\t;\t")
     korean = word_splitted[0]
-    print(f"{korean}({num_words} left)", end=" ")
+    if restrict:
+        print(f"{korean}({num_words-thres_length} left)", end=" ")
+    else:
+        print(f"{korean}({num_words} left)", end=" ")
     a = input()
     if a.lower() == 'x':
         break

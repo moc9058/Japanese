@@ -1,10 +1,12 @@
-words_file = open("1_groups.txt", 'r', encoding="UTF-8")
-i_file = open("1_groups_backup.txt",'w',encoding="UTF-8")
+words_file = open("kanji2kor.txt", 'r', encoding="UTF-8")
+i_file = open("kor2kanji.txt",'w',encoding="UTF-8")
 
 words = words_file.readlines()
 for word in words:
-    japanese = word.replace("；","\t;\t")
-    i_file.write(japanese)
+    tmp = word.split("\t;\t")
+    prob = tmp[1][:-1]
+    ans = tmp[0]
+    i_file.write(f"{prob}\t;\t{ans}\n")
 
 
 words_file.close()
