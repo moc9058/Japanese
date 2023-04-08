@@ -1,14 +1,19 @@
 import random
-mode = input("0:today.txt, 1:verbs.txt, 그 외:N5.txt\n")
+mode = input("0:today.txt, 1:verbs.txt, 2:N5.txt, 3:kanji_words.txt 그 외:kanji.txt\n")
 try:
     if int(mode) == 0:
         words_file = open("words/today.txt", 'r', encoding="UTF-8")
     elif int(mode) == 1:
         words_file = open("VA/verbs.txt",'r', encoding="UTF-8")
-    else:
+    elif int(mode) == 2:
         words_file = open("words/N5.txt",'r', encoding="utf-8")
+    elif int(mode) == 3:    
+        words_file = open("words/kanji_words.txt",'r', encoding="utf-8")
+    else:
+        words_file = open("words/kanji.txt",'r',encoding="utf-8")
 except:
-    words_file = open("words/N5.txt",'r', encoding="utf-8")
+    words_file = open("words/kanji.txt",'r', encoding="utf-8")
+    
     
 prob_index, ans_index = 0,1
 words = words_file.readlines()
