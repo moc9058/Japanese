@@ -1,23 +1,30 @@
 import random
-mode = input("0:today.txt, 1:verbs.txt, 2:N5.txt, 3:kanji2kor.txt, 4:kor2kanji.txt, 그 외:kanji_words.txt\n")
+print("0:today.txt, 101:verbs.txt, 102:N5.txt, 103:kanji2kor.txt, 104:kor2kanji.txt") 
+print("1,2:kanji_words_1,2강, 3:kanji_words_3강, 그 외:kanji_words_통합.txt")
+mode = input()
 restrict = False
 try:
     if int(mode) == 0:
         words_file = open("words/today.txt", 'r', encoding="UTF-8")
-    elif int(mode) == 1:
+    elif int(mode) == 101:
         words_file = open("VA/verbs.txt",'r', encoding="UTF-8")
-    elif int(mode) == 2:
+    elif int(mode) == 102:
         words_file = open("words/N5.txt",'r', encoding="utf-8")
-    elif int(mode) == 3:    
-        words_file = open("words/kanji2kor.txt",'r', encoding="utf-8")
+    elif int(mode) == 103:    
+        words_file = open("words/kanji/kanji2kor.txt",'r', encoding="utf-8")
         restrict = True
-    elif int(mode) == 4:
-        words_file = open("words/kor2kanji.txt",'r', encoding="utf-8")
+    elif int(mode) == 104:
+        words_file = open("words/kanji/kor2kanji.txt",'r', encoding="utf-8")
         restrict = True
+    elif int(mode) in [1,2]:
+        words_file = open("words/kanji/kanji_words_1,2강.txt",'r', encoding="utf-8")
+    elif int(mode) == 3:
+        words_file = open("words/kanji/kanji_words_3강.txt",'r', encoding="utf-8")
+
     else:
-        words_file = open("words/kanji_words.txt",'r',encoding="utf-8")
+        words_file = open("words/kanji/kanji_words_통합.txt",'r',encoding="utf-8")
 except:
-    words_file = open("words/kanji_words.txt",'r', encoding="utf-8")
+    words_file = open("words/kanji_words_통합.txt",'r', encoding="utf-8")
     
     
 prob_index, ans_index = 0,1
@@ -25,13 +32,13 @@ words = words_file.readlines()
 num_cycle = -1
 wrong_cycles = []
 wrong_words = []
-thres_length = len(words) - 50
+thres_length = max(0,len(words) - 50)
 
 while True:
     num_cycle += 1
     num_words = len(words)
     again = False
-    if num_words == thres_length:
+    if num_words == thres_length and restrict:
         break
     try:
         random_index = random.randint(0, num_words-1)

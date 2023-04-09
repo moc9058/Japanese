@@ -1,10 +1,10 @@
-words_file = open("N5.txt", 'r', encoding="UTF-8")
+words_file = open("kanji_words.txt", 'r', encoding="UTF-8")
 i_file = open("1_groups.txt",'w',encoding="UTF-8")
 
 words = words_file.readlines()
 factor = ['い', 'え', 'き', 'け', 'し', 'せ', 'ち', 'て', 'に', 'ね', 'ひ', 'へ', 'み', 'め', 'り', 'れ', 'ぎ', 'げ', 'じ', 'ぜ', 'ぢ', 'で', 'び', 'べ', 'ぴ', 'ぺ']
 for word in words:
-    japanese = word.split("；")
+    japanese = word.split("\t;\t")
     try:
         if int(japanese[-1][0]) == 1:
             ru = japanese[1][-1]
