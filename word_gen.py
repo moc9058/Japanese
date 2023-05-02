@@ -24,7 +24,7 @@ try:
     else:
         words_file = open("words/kanji/kanji_words_통합.txt",'r',encoding="utf-8")
 except:
-    words_file = open("words/kanji_words_통합.txt",'r', encoding="utf-8")
+    words_file = open("words/kanji/kanji_words_통합.txt",'r', encoding="utf-8")
     
     
 prob_index, ans_index = 0,1
